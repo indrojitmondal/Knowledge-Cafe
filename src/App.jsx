@@ -20,10 +20,12 @@ function App() {
     
     setBookmarks(newBookmarks);
   }
-  const handleMarkAsRead = time=>{
+  const handleMarkAsRead = (time,id)=>{
     console.log("Mark As read",time);
     const newReadingTime= readingTimes+ time;
     setReadingTimes(newReadingTime);
+    const newBookmarks = bookmarks.filter(bookmark => bookmark.id !=id);
+    setBookmarks(newBookmarks); 
   }
 
   return (
