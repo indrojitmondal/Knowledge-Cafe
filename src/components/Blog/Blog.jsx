@@ -1,14 +1,17 @@
 import { space } from 'postcss/lib/list';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { FaBookmark } from "react-icons/fa";
 
-const Blog = ({blog}) => {
+const Blog = ({blog,handleAddToBookmark}) => {
     const {title,cover,author_img,author,reading_time,posted_date,
         hashtags
-    }= blog;
+    }=blog;
+   
+    
     return (
-        <div>
-            <img src={cover} alt={`cover picture of title ${title}`}  ></img>
+        <div className='mb-20'>
+            <img className='w-full' src={cover} alt={`cover picture of title ${title}`}  ></img>
             <div className='flex justify-between '>
 
                 <div className='flex'>
@@ -23,6 +26,11 @@ const Blog = ({blog}) => {
                 <div>
 
                     <span>{reading_time} min read </span>
+                    <button
+                    onClick={handleAddToBookmark}
+                     className='ml-2 text-red-600 text-2xl'   
+                     > <FaBookmark></FaBookmark>
+                     </button>
 
                 </div>
 
